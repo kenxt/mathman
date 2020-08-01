@@ -71,7 +71,7 @@ class Server  {
       this.sendResponse(res, type, data[type]);
       if (this.useRedis) {
         this.redisCli.mset('mml:' + tex, data['mml'], 'svg:' + tex, data['svg']);
-        this.redisCli.expire('mml:' + tex, process.env.REDIS_EXPIRE);
+        this.redisCli.expire('mml:' + tex, process.env.REDIS_EXPIRE); 
         this.redisCli.expire('svg:' + tex, process.env.REDIS_EXPIRE);
       }
     });
