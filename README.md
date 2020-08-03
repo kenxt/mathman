@@ -36,6 +36,7 @@ Edit by kenxt:
 
 
 1、Run "docker build -t mathman:v1.0.1 ." to create docker image
+
 2、Run "docker run -d --name mathman -p 8000:80  \
     -e NGINX_WORKER_CONNECTIONS=10240 \
     -e PASSENGER_MAX_POOL_SIZE=6 \
@@ -48,4 +49,15 @@ Edit by kenxt:
     -e VIRTUAL_HOST=your_host_ip \
     mathman:v1.0.1" 
     to create container
+    
  3、Run "docker logs mathman -f" to show logging realtime
+ 
+ 4、canvas settings:
+    vi config/dynamic_settings.yml:
+    production:
+       canvas:
+          math-man:
+             base_url: 'mathman_docker_url'
+             use_for_svg: 'true'
+             use_for_mml: 'true'
+
